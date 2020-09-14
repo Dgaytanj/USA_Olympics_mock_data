@@ -65,14 +65,17 @@ def EWMA_Chronic(df,chronic_duration):
     return EWMA_ChronicWR_val
 
 
-# In[3]:
+# In[13]:
 
 
 # Update folder Path below:
-PATH = "//Users//DanTheManWithAPlan//Documents//USOPC_MockData_Daniel_Gaytan_Jenkins//" ##UPDATE
-load_df = pd.read_csv(PATH+'Mock_Load_Data.csv',engine='python')
-travel_df = pd.read_csv(PATH+'Mock_Travel_Location_Data.csv',engine='python')
-wellness_df = pd.read_csv(PATH+'Mock_Wellness_Data.csv',engine='python')
+#PATH = "//Users//DanTheManWithAPlan//Documents//USOPC_MockData_Daniel_Gaytan_Jenkins//" ##UPDATE
+load_url='https://raw.githubusercontent.com/Dgaytanj/USA_Olympics_mock_data/master/Mock_Load_Data.csv'
+travel_url = 'https://raw.githubusercontent.com/Dgaytanj/USA_Olympics_mock_data/master/Mock_Travel_Location_Data.csv'
+wellness_url = 'https://raw.githubusercontent.com/Dgaytanj/USA_Olympics_mock_data/master/Mock_Wellness_Data.csv'
+load_df = pd.read_csv(load_url,encoding='latin1')
+travel_df = pd.read_csv(travel_url,encoding='latin1')
+wellness_df = pd.read_csv(wellness_url,encoding='latin1')
 
 
 # In[4]:
