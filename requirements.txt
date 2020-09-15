@@ -1,5 +1,5 @@
 panel
-bumpy
+numpy
 pandas
 datetime
 plotly
