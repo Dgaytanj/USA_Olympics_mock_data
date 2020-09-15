@@ -19,7 +19,7 @@ from plotly.subplots import make_subplots
 pn.extension('plotly')
 
 
-# In[2]:
+# In[14]:
 
 
 #Survey_Completed timestamp update
@@ -65,7 +65,7 @@ def EWMA_Chronic(df,chronic_duration):
     return EWMA_ChronicWR_val
 
 
-# In[13]:
+# In[15]:
 
 
 # Update folder Path below:
@@ -78,7 +78,7 @@ travel_df = pd.read_csv(travel_url,encoding='latin1')
 wellness_df = pd.read_csv(wellness_url,encoding='latin1')
 
 
-# In[4]:
+# In[16]:
 
 
 # Cleaning and formating data:
@@ -103,7 +103,7 @@ load_df['Date'] = pd.to_datetime(load_df.apply(lambda x: adjusted_date(x.Survey_
 wellness_df['Date'] = pd.to_datetime(wellness_df.apply(lambda x: adjusted_date(x.Survey_Completed, x.DayOfEntry, x.Date_New), axis=1))
 
 
-# In[5]:
+# In[17]:
 
 
 #Player load metrics
@@ -128,7 +128,7 @@ for player in load_df.Athlete.unique():
     player_load[player]['EWMA_ACWR'] = player_load[player]['EWMA_ACWR'].fillna(0)
 
 
-# In[6]:
+# In[18]:
 
 
 #Player wellness formating
@@ -148,7 +148,7 @@ for player in wellness_df.Athlete.unique():
     
 
 
-# In[137]:
+# In[22]:
 
 
 import panel as pn
@@ -348,7 +348,7 @@ def workload_plot(player,start_end_date):
 watcher = athlete_selector.param.watch(callback,'value')
 
 
-# In[138]:
+# In[33]:
 
 
 css = '''
@@ -391,9 +391,9 @@ header = pn.Row(
             ),
             pn.layout.HSpacer(),
     pn.layout.HSpacer(),
-            pn.pane.PNG(PATH+'logo-usopc-black-semi-trans.png',height=150,
-                        margin = (0, 10, 0, 100),
-                       ),
+            #pn.pane.PNG('https://github.com/Dgaytanj/USA_Olympics_mock_data/blob/master/logo-usopc-black-semi-trans.png',height=150,
+                        #margin = (0, 10, 0, 100),
+                       #),
     #pn.layout.HSpacer(),
     background="#c30000",height=150,height_policy='fixed'
 )
@@ -432,10 +432,4 @@ x = pn.Column(
      )
 x.margin = (0, 100, 0, 100)
 x.show()
-
-
-# In[ ]:
-
-
-
 

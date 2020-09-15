@@ -1,0 +1,6 @@
+panel
+bumpy
+pandas
+datetime
+plotly
+nbconvert
